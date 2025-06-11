@@ -139,7 +139,7 @@ public class LoginPage extends javax.swing.JFrame {
 
                 Dashboard dashboard = new Dashboard(); 
                 dashboard.setVisible(true);
-                this.dispose(); // Close login page
+                this.dispose(); 
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Username or Password!", "Error", JOptionPane.ERROR_MESSAGE);
             }

@@ -24,13 +24,13 @@ public class Books_Available extends javax.swing.JFrame {
     private void addListeners() {
         fechbooks.addActionListener(e -> fetchBooksFromDatabase());
         btnback.addActionListener(e -> {
-            // Open previous page (e.g., Dashboard)
+           
             new Dashboard().setVisible(true);
-            this.dispose(); // Close current window
+            this.dispose(); 
         });
     }
      private void fetchBooksFromDatabase() {
-        String DB_URL = "jdbc:mysql://localhost:3310/library"; // Change if needed
+        String DB_URL = "jdbc:mysql://localhost:3310/library"; 
         String DB_USERNAME = "root";
         String DB_PASSWORD = "root@234";
 
@@ -39,8 +39,7 @@ public class Books_Available extends javax.swing.JFrame {
              ResultSet rs = stmt.executeQuery("SELECT * FROM books")) {
 
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0); // Clear existing rows
-
+            model.setRowCount(0); 
             while (rs.next()) {
                 Object[] row = {
                     rs.getInt("book_id"),

@@ -12,9 +12,7 @@ public class Add_Books extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Add_Books.class.getName());
 
-    /**
-     * Creates new form Add_Books
-     */
+
     public Add_Books() {
         initComponents();
            btnSubmit.addActionListener(evt -> addBookToDatabase());
@@ -157,7 +155,7 @@ public class Add_Books extends javax.swing.JFrame {
         try {
             int copyCount = Integer.parseInt(cop);
 
-        String DB_URL = "jdbc:mysql://localhost:3310/library"; // Change if needed
+        String DB_URL = "jdbc:mysql://localhost:3310/library"; 
         String DB_USERNAME = "root";
         String DB_PASSWORD = "root@234";
 
