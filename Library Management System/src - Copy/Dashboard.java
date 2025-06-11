@@ -151,9 +151,6 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnAddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBActionPerformed
         // TODO add your handling code here:
-        Add_Books addB = new Add_Books();
-        addB.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnAddBActionPerformed
 
     private void btnBAvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBAvActionPerformed
