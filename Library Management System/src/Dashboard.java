@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import javax.swing.*;
 
 /**
  *
@@ -29,11 +30,12 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnBAv = new javax.swing.JButton();
-        btnBAv1 = new javax.swing.JButton();
-        btnBAv2 = new javax.swing.JButton();
-        btnBAv3 = new javax.swing.JButton();
-        btnBAv4 = new javax.swing.JButton();
-        btnBAv5 = new javax.swing.JButton();
+        btnAddB = new javax.swing.JButton();
+        btnRemB = new javax.swing.JButton();
+        btnSDet = new javax.swing.JButton();
+        btnAddS = new javax.swing.JButton();
+        btnRemS = new javax.swing.JButton();
+        btnEtAd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,38 +50,45 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        btnBAv1.setText("Add Book");
-        btnBAv1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddB.setText("Add Book");
+        btnAddB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBAv1ActionPerformed(evt);
+                btnAddBActionPerformed(evt);
             }
         });
 
-        btnBAv2.setText("Remove Book");
-        btnBAv2.addActionListener(new java.awt.event.ActionListener() {
+        btnRemB.setText("Remove Book");
+        btnRemB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBAv2ActionPerformed(evt);
+                btnRemBActionPerformed(evt);
             }
         });
 
-        btnBAv3.setText("Staff Detail");
-        btnBAv3.addActionListener(new java.awt.event.ActionListener() {
+        btnSDet.setText("Staff Detail");
+        btnSDet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBAv3ActionPerformed(evt);
+                btnSDetActionPerformed(evt);
             }
         });
 
-        btnBAv4.setText("Add Staff");
-        btnBAv4.addActionListener(new java.awt.event.ActionListener() {
+        btnAddS.setText("Add Staff");
+        btnAddS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBAv4ActionPerformed(evt);
+                btnAddSActionPerformed(evt);
             }
         });
 
-        btnBAv5.setText("Remove Staff");
-        btnBAv5.addActionListener(new java.awt.event.ActionListener() {
+        btnRemS.setText("Remove Staff");
+        btnRemS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBAv5ActionPerformed(evt);
+                btnRemSActionPerformed(evt);
+            }
+        });
+
+        btnEtAd.setText("Edit Admin");
+        btnEtAd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEtAdActionPerformed(evt);
             }
         });
 
@@ -93,17 +102,21 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBAv, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBAv1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBAv2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAddB, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRemB, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBAv3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBAv4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBAv5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnSDet, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddS, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRemS, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(121, 121, 121)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(btnEtAd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(75, 75, 75)))
+                .addGap(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,44 +128,50 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBAv, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBAv1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddB, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBAv2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRemB, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBAv3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSDet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBAv4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddS, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBAv5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                        .addComponent(btnRemS, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnEtAd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBAv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBAv2ActionPerformed
+    private void btnRemBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBAv2ActionPerformed
+    }//GEN-LAST:event_btnRemBActionPerformed
 
-    private void btnBAv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBAv1ActionPerformed
+    private void btnAddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBAv1ActionPerformed
+    }//GEN-LAST:event_btnAddBActionPerformed
 
     private void btnBAvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBAvActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBAvActionPerformed
 
-    private void btnBAv3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBAv3ActionPerformed
+    private void btnSDetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSDetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBAv3ActionPerformed
+    }//GEN-LAST:event_btnSDetActionPerformed
 
-    private void btnBAv4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBAv4ActionPerformed
+    private void btnAddSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBAv4ActionPerformed
+    }//GEN-LAST:event_btnAddSActionPerformed
 
-    private void btnBAv5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBAv5ActionPerformed
+    private void btnRemSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBAv5ActionPerformed
+    }//GEN-LAST:event_btnRemSActionPerformed
+
+    private void btnEtAdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEtAdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEtAdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,15 +196,20 @@ public class Dashboard extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Dashboard().setVisible(true));
+          SwingUtilities.invokeLater(() -> {
+            Dashboard dashboard = new Dashboard();
+            dashboard.setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddB;
+    private javax.swing.JButton btnAddS;
     private javax.swing.JButton btnBAv;
-    private javax.swing.JButton btnBAv1;
-    private javax.swing.JButton btnBAv2;
-    private javax.swing.JButton btnBAv3;
-    private javax.swing.JButton btnBAv4;
-    private javax.swing.JButton btnBAv5;
+    private javax.swing.JButton btnEtAd;
+    private javax.swing.JButton btnRemB;
+    private javax.swing.JButton btnRemS;
+    private javax.swing.JButton btnSDet;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

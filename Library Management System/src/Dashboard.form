@@ -29,22 +29,27 @@
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnBAv" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                          <Component id="btnBAv1" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                          <Component id="btnBAv2" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="btnAddB" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="btnRemB" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnBAv3" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                          <Component id="btnBAv4" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                          <Component id="btnBAv5" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="btnSDet" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="btnAddS" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="btnRemS" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="151" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="btnEtAd" max="32767" attributes="0"/>
+                      <EmptySpace min="75" pref="75" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,19 +63,21 @@
                   <Group type="102" attributes="0">
                       <Component id="btnBAv" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnBAv1" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAddB" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnBAv2" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnRemB" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="btnBAv3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnSDet" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnBAv4" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnAddS" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnBAv5" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnRemS" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="144" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnEtAd" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace pref="94" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,44 +100,52 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBAvActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnBAv1">
+    <Component class="javax.swing.JButton" name="btnAddB">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Book"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBAv1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddBActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnBAv2">
+    <Component class="javax.swing.JButton" name="btnRemB">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove Book"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBAv2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemBActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnBAv3">
+    <Component class="javax.swing.JButton" name="btnSDet">
       <Properties>
         <Property name="text" type="java.lang.String" value="Staff Detail"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBAv3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSDetActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnBAv4">
+    <Component class="javax.swing.JButton" name="btnAddS">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Staff"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBAv4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddSActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnBAv5">
+    <Component class="javax.swing.JButton" name="btnRemS">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove Staff"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBAv5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemSActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEtAd">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Edit Admin"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEtAdActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

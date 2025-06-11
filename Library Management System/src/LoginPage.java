@@ -1,3 +1,11 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,9 +19,8 @@ public class LoginPage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginPage.class.getName());
 
-    /**
-     * Creates new form LoginPage
-     */
+    
+   
     public LoginPage() {
         initComponents();
     }
@@ -110,7 +117,40 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void logbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logbtnActionPerformed
-        // TODO add your handling code here:
+             
+    String DB_URL = "jdbc:mysql://localhost:3310/library"; 
+    String DB_USERNAME = "root"; 
+    String DB_PASSWORD = "root@234"; 
+
+    String Username = username.getText().trim();
+    String pswrd = new String(password.getPassword()).trim();
+
+    String query = "SELECT * FROM admin WHERE name = ? AND password = ?";
+
+    try (Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+        pstmt.setString(1, Username);
+        pstmt.setString(2, pswrd);
+
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "Login Successful!");
+
+                Dashboard dashboard = new Dashboard(); 
+                dashboard.setVisible(true);
+                this.dispose(); // Close login page
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Username or Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Database Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+       
     }//GEN-LAST:event_logbtnActionPerformed
 
     /**
@@ -134,7 +174,7 @@ public class LoginPage extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+      
         java.awt.EventQueue.invokeLater(() -> new LoginPage().setVisible(true));
     }
 
