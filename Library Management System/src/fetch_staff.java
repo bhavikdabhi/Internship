@@ -81,7 +81,7 @@ public class fetch_staff extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         submit.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        submit.setText("Submit");
+        submit.setText("Fetch");
 
         btnCancel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnCancel.setText("cancel");

@@ -170,7 +170,11 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSDetActionPerformed
 
     private void btnAddSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSActionPerformed
+
         // TODO add your handling code here:
+        add_staff adst = new add_staff();
+        adst.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAddSActionPerformed
 
     private void btnRemSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemSActionPerformed
