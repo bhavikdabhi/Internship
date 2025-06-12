@@ -34,7 +34,7 @@ public class Add_Books extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        category = new javax.swing.JTextField();
+        bid = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         bname = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -43,6 +43,8 @@ public class Add_Books extends javax.swing.JFrame {
         copies = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        category = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,7 +54,7 @@ public class Add_Books extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Category :");
+        jLabel2.setText("Book_ID :");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -70,6 +72,10 @@ public class Add_Books extends javax.swing.JFrame {
 
         btnCancel.setText("Cancel");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Category :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,7 +86,7 @@ public class Add_Books extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bid, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -104,7 +110,12 @@ public class Add_Books extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(copies, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(copies, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -115,6 +126,10 @@ public class Add_Books extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -132,7 +147,7 @@ public class Add_Books extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,12 +157,13 @@ public class Add_Books extends javax.swing.JFrame {
      * @param args the command line arguments
      */
      private void addBookToDatabase() {
+          String bkid = bid.getText().trim();
         String cat = category.getText().trim();
         String bookName = bname.getText().trim();
         String auth = author.getText().trim();
         String cop = copies.getText().trim();
 
-        if (cat.isEmpty() || bookName.isEmpty() || auth.isEmpty() || cop.isEmpty()) {
+        if (bkid.isEmpty() || cat.isEmpty() || bookName.isEmpty() || auth.isEmpty() || cop.isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are required.");
             return;
         }
@@ -162,16 +178,18 @@ public class Add_Books extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-            String sql = "INSERT INTO books (category, name, author, copies) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO books (book_id, category, name, author, copies) VALUES (?,?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, cat);
-            stmt.setString(2, bookName);
-            stmt.setString(3, auth);
-            stmt.setInt(4, copyCount);
+             stmt.setString(1, bkid);
+            stmt.setString(2, cat);
+            stmt.setString(3, bookName);
+            stmt.setString(4, auth);
+            stmt.setInt(5, copyCount);
 
             int rowsInserted = stmt.executeUpdate();
             if (rowsInserted > 0) {
                 JOptionPane.showMessageDialog(this, "Book added successfully.");
+                bid.setText("");
                 category.setText("");
                 bname.setText("");
                 author.setText("");
@@ -195,6 +213,7 @@ public class Add_Books extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField author;
+    private javax.swing.JTextField bid;
     private javax.swing.JTextField bname;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSubmit;
@@ -205,5 +224,6 @@ public class Add_Books extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
