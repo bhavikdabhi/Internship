@@ -147,6 +147,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnRemBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemBActionPerformed
         // TODO add your handling code here:
+        remove_book rmb = new remove_book();
+        rmb.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRemBActionPerformed
 
     private void btnAddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBActionPerformed
@@ -179,10 +182,16 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnRemSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemSActionPerformed
         // TODO add your handling code here:
+        remove_staff rmst = new remove_staff();
+        rmst.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRemSActionPerformed
 
     private void btnEtAdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEtAdActionPerformed
         // TODO add your handling code here:
+        edit_admin edta = new edit_admin();
+        edta.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEtAdActionPerformed
 
     /**

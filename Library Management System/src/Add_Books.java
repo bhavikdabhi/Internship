@@ -15,13 +15,7 @@ public class Add_Books extends javax.swing.JFrame {
 
     public Add_Books() {
         initComponents();
-           btnSubmit.addActionListener(evt -> addBookToDatabase());
-        btnCancel.addActionListener(e -> {
-            // Open previous page (e.g., Dashboard)
-            new Dashboard().setVisible(true);
-            this.dispose(); // Close current window
-        });
-    }
+            }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,8 +63,18 @@ public class Add_Books extends javax.swing.JFrame {
         jLabel5.setText("Copies :");
 
         btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -153,10 +157,14 @@ public class Add_Books extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-     private void addBookToDatabase() {
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+
+        new Dashboard().setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
           String bkid = bid.getText().trim();
         String cat = category.getText().trim();
         String bookName = bname.getText().trim();
@@ -205,7 +213,13 @@ public class Add_Books extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
-    }
+  
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    
     public static void main(String args[]) {
       
         java.awt.EventQueue.invokeLater(() -> new Add_Books().setVisible(true));

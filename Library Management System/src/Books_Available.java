@@ -42,7 +42,7 @@ public class Books_Available extends javax.swing.JFrame {
             model.setRowCount(0); 
             while (rs.next()) {
                 Object[] row = {
-                    rs.getInt("book_id"),
+                    rs.getString("book_id"),
                     rs.getString("category"),
                     rs.getString("name"),
                     rs.getString("author"),
@@ -77,6 +77,7 @@ public class Books_Available extends javax.swing.JFrame {
                 "book_id", "category", "name", "author", "copies"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         fechbooks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N

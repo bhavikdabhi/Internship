@@ -78,6 +78,7 @@ public class fetch_staff extends javax.swing.JFrame {
                 "Staff_Id", "Name", "Contact"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         submit.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
