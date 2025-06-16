@@ -9,7 +9,7 @@ class BankAccount {
     public BankAccount(String accountNumber, String accountHolderName) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
-        this.balance = 0.0; // Initial balance is set to zero
+        this.balance = 0.0; 
     }
 
     public String getAccountNumber() {
